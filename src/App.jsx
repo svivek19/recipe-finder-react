@@ -4,18 +4,34 @@ import { Header, AppNameComponent, AppIcon, SearchIcon, SearchComponent, SearchI
 import { RecipeListContainer, RecipeContainer, CoverImage, RecipeName, IngredientsText, SeeMoreText } from './component/RecipeComponent';
 
 
+const RecipeComponent = ({recipeObj}) => {
+  console.log(recipeObj);
+  return (
+    <RecipeContainer>
+      <CoverImage src={recipeObj.image} alt='product-image'/>
+      <RecipeName>{recipeObj.label}</RecipeName>
+      <IngredientsText>Ingredients</IngredientsText>
+      <SeeMoreText onClick={()=>window.open(recipeObj.url)}>See Complete Recipe</SeeMoreText>
+    </RecipeContainer>
+  )
+};
+
 const App = () => {
 
   const [timeoutId, setTimeoutId] = useState();
-  
-  const fetchRecipe = (searchString) => {
-    axios.get(`https://api.edamam.com/search?q=${searchString}&app_id=${APP_ID}&app_key=${APP_KEY}`)
-    .then((res)=>console.log(res))
+  const [recipeList, setRecipeList] = useState([]);
+
+  const apiid = import.meta.env.VITE_API_ID;
+  const apikey = import.meta.env.VITE_API_KEY;
+
+  const fetchRecipe = async (searchString) => {
+    const response = await axios.get(`https://api.edamam.com/search?q=${searchString}&app_id=${apiid}&app_key=${apikey}`);
+    setRecipeList(response.data.hits);
   }
 
   const onTextChange = (e) => {
     clearTimeout(timeoutId);
-    const timeout = setTimeout(() => fetchRecipe(e.target.value), 3000);
+    const timeout = setTimeout(() => fetchRecipe(e.target.value), 1000);
     setTimeoutId(timeout);
   };
 
@@ -32,48 +48,7 @@ const App = () => {
         </SearchComponent>
       </Header>
       <RecipeListContainer>
-        <RecipeContainer>
-          <CoverImage src="https://png.pngtree.com/png-clipart/20221001/ourmid/pngtree-fast-food-big-ham-burger-png-image_6244235.png" alt="" />
-          <RecipeName>name of the</RecipeName>
-          <IngredientsText>Ingredients</IngredientsText>
-          <SeeMoreText>See Complete Recipe</SeeMoreText>
-        </RecipeContainer>
-        <RecipeContainer>
-          <CoverImage src="https://png.pngtree.com/png-clipart/20221001/ourmid/pngtree-fast-food-big-ham-burger-png-image_6244235.png" alt="" />
-          <RecipeName>name of the</RecipeName>
-          <IngredientsText>Ingredients</IngredientsText>
-          <SeeMoreText>See Complete Recipe</SeeMoreText>
-        </RecipeContainer>
-        <RecipeContainer>
-          <CoverImage src="https://png.pngtree.com/png-clipart/20221001/ourmid/pngtree-fast-food-big-ham-burger-png-image_6244235.png" alt="" />
-          <RecipeName>name of the</RecipeName>
-          <IngredientsText>Ingredients</IngredientsText>
-          <SeeMoreText>See Complete Recipe</SeeMoreText>
-        </RecipeContainer>
-        <RecipeContainer>
-          <CoverImage src="https://png.pngtree.com/png-clipart/20221001/ourmid/pngtree-fast-food-big-ham-burger-png-image_6244235.png" alt="" />
-          <RecipeName>name of the</RecipeName>
-          <IngredientsText>Ingredients</IngredientsText>
-          <SeeMoreText>See Complete Recipe</SeeMoreText>
-        </RecipeContainer>
-        <RecipeContainer>
-          <CoverImage src="https://png.pngtree.com/png-clipart/20221001/ourmid/pngtree-fast-food-big-ham-burger-png-image_6244235.png" alt="" />
-          <RecipeName>name of the</RecipeName>
-          <IngredientsText>Ingredients</IngredientsText>
-          <SeeMoreText>See Complete Recipe</SeeMoreText>
-        </RecipeContainer>
-        <RecipeContainer>
-          <CoverImage src="https://png.pngtree.com/png-clipart/20221001/ourmid/pngtree-fast-food-big-ham-burger-png-image_6244235.png" alt="" />
-          <RecipeName>name of the</RecipeName>
-          <IngredientsText>Ingredients</IngredientsText>
-          <SeeMoreText>See Complete Recipe</SeeMoreText>
-        </RecipeContainer>
-        <RecipeContainer>
-          <CoverImage src="https://png.pngtree.com/png-clipart/20221001/ourmid/pngtree-fast-food-big-ham-burger-png-image_6244235.png" alt="" />
-          <RecipeName>name of the</RecipeName>
-          <IngredientsText>Ingredients</IngredientsText>
-          <SeeMoreText>See Complete Recipe</SeeMoreText>
-        </RecipeContainer>
+        {recipeList.length && recipeList.map((recipeObj) => <RecipeComponent recipeObj={recipeObj.recipe} />)}
       </RecipeListContainer>
     </Container>
   )

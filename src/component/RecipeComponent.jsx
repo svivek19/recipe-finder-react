@@ -19,8 +19,9 @@ export const RecipeContainer = styled.div`
 `;
 
 export const CoverImage = styled.img`
+width:100%;
 height:200px;
-margin:0 17%;
+border-radius:10px;
 `;
 
 export const RecipeName = styled.p`
