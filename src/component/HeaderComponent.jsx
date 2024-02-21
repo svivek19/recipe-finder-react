@@ -9,7 +9,7 @@ flex:direction:row;
 padding:20px;
 font-size: 25px;
 font-weight:bold;
-box-shaddow:0 3px 6px #555;
+box-shadow:0 3px 6px #555;
 align-items:center;
 `;
 

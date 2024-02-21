@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header, AppNameComponent, AppIcon, SearchIcon, SearchComponent, SearchInput, Container } from './component/HeaderComponent';
-
+import { RecipeListContainer, RecipeContainer, CoverImage, RecipeName, IngredientsText, SeeMoreText } from './component/RecipeComponent';
 
 
 const App = () => {
@@ -16,6 +16,50 @@ const App = () => {
           <SearchInput placeholder='Search Recipe' />
         </SearchComponent>
       </Header>
+      <RecipeListContainer>
+        <RecipeContainer>
+          <CoverImage src="https://png.pngtree.com/png-clipart/20221001/ourmid/pngtree-fast-food-big-ham-burger-png-image_6244235.png" alt="" />
+          <RecipeName>name of the</RecipeName>
+          <IngredientsText>Ingredients</IngredientsText>
+          <SeeMoreText>See Complete Recipe</SeeMoreText>
+        </RecipeContainer>
+        <RecipeContainer>
+          <CoverImage src="https://png.pngtree.com/png-clipart/20221001/ourmid/pngtree-fast-food-big-ham-burger-png-image_6244235.png" alt="" />
+          <RecipeName>name of the</RecipeName>
+          <IngredientsText>Ingredients</IngredientsText>
+          <SeeMoreText>See Complete Recipe</SeeMoreText>
+        </RecipeContainer>
+        <RecipeContainer>
+          <CoverImage src="https://png.pngtree.com/png-clipart/20221001/ourmid/pngtree-fast-food-big-ham-burger-png-image_6244235.png" alt="" />
+          <RecipeName>name of the</RecipeName>
+          <IngredientsText>Ingredients</IngredientsText>
+          <SeeMoreText>See Complete Recipe</SeeMoreText>
+        </RecipeContainer>
+        <RecipeContainer>
+          <CoverImage src="https://png.pngtree.com/png-clipart/20221001/ourmid/pngtree-fast-food-big-ham-burger-png-image_6244235.png" alt="" />
+          <RecipeName>name of the</RecipeName>
+          <IngredientsText>Ingredients</IngredientsText>
+          <SeeMoreText>See Complete Recipe</SeeMoreText>
+        </RecipeContainer>
+        <RecipeContainer>
+          <CoverImage src="https://png.pngtree.com/png-clipart/20221001/ourmid/pngtree-fast-food-big-ham-burger-png-image_6244235.png" alt="" />
+          <RecipeName>name of the</RecipeName>
+          <IngredientsText>Ingredients</IngredientsText>
+          <SeeMoreText>See Complete Recipe</SeeMoreText>
+        </RecipeContainer>
+        <RecipeContainer>
+          <CoverImage src="https://png.pngtree.com/png-clipart/20221001/ourmid/pngtree-fast-food-big-ham-burger-png-image_6244235.png" alt="" />
+          <RecipeName>name of the</RecipeName>
+          <IngredientsText>Ingredients</IngredientsText>
+          <SeeMoreText>See Complete Recipe</SeeMoreText>
+        </RecipeContainer>
+        <RecipeContainer>
+          <CoverImage src="https://png.pngtree.com/png-clipart/20221001/ourmid/pngtree-fast-food-big-ham-burger-png-image_6244235.png" alt="" />
+          <RecipeName>name of the</RecipeName>
+          <IngredientsText>Ingredients</IngredientsText>
+          <SeeMoreText>See Complete Recipe</SeeMoreText>
+        </RecipeContainer>
+      </RecipeListContainer>
     </Container>
   )
 }
