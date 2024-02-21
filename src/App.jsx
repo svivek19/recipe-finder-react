@@ -1,18 +1,25 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+// import DialogActions from '@mui/material/DialogActions';
+// import DialogContent from '@mui/material/DialogContent';
+// import DialogTitle from '@mui/material/DialogTitle';
 import { Header, AppNameComponent, AppIcon, SearchIcon, SearchComponent, SearchInput, Container } from './component/HeaderComponent';
 import { RecipeListContainer, RecipeContainer, CoverImage, RecipeName, IngredientsText, SeeMoreText } from './component/RecipeComponent';
+import { Dialog } from '@mui/material';
 
 
-const RecipeComponent = ({recipeObj}) => {
-  console.log(recipeObj);
+const RecipeComponent = ({ recipeObj }) => {
+  const [show, setShow] = useState(false);
   return (
-    <RecipeContainer>
-      <CoverImage src={recipeObj.image} alt='product-image'/>
-      <RecipeName>{recipeObj.label}</RecipeName>
-      <IngredientsText>Ingredients</IngredientsText>
-      <SeeMoreText onClick={()=>window.open(recipeObj.url)}>See Complete Recipe</SeeMoreText>
-    </RecipeContainer>
+    <>
+      <Dialog open={show}>working...</Dialog>
+      <RecipeContainer>
+        <CoverImage src={recipeObj.image} alt='product-image' />
+        <RecipeName>{recipeObj.label}</RecipeName>
+        <IngredientsText onClick={() => setShow(true)} > Ingredients</IngredientsText>
+        <SeeMoreText onClick={() => window.open(recipeObj.url)}>See Complete Recipe</SeeMoreText>
+      </RecipeContainer >
+    </>
   )
 };
 
