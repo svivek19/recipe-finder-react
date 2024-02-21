@@ -1,34 +1,72 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import styled from 'styled-components';
 
-function App() {
-  const [count, setCount] = useState(0)
+const Container = styled.div`
+display:flex;
+flex-direction:column;
+`
+const Header = styled.div`
+color:white;
+background-color:darkgreen;
+display:flex;
+justify-content:space-between;
+flex:direction:row;
+padding:20px;
+font-size: 25px;
+font-weight:bold;
+box-shaddow:0 3px 6px #555;
+align-items:center;
+`;
 
+const AppNameComponent = styled.div`
+display:flex;
+align-items:center;
+font-size: 25px;
+`;
+
+const AppIcon = styled.img`
+width:40px;
+height:40px;
+margin-right:10px;
+`;
+
+const SearchIcon = styled.img`
+width:23px;
+height:23px;
+`;
+
+const SearchComponent = styled.div`
+display:flex;
+flex-direction:row;
+background-color: white;
+padding:10px;
+border-radius:6px;
+width:50%;
+`;
+
+const SearchInput = styled.input`
+border:none;
+outline:none;
+width:100%;
+margin-left:15px;
+font-size: 16px;
+font-weight:bold;
+`
+
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Container>
+      <Header>
+        <AppNameComponent>
+          <AppIcon src="https://png.pngtree.com/png-clipart/20221001/ourmid/pngtree-fast-food-big-ham-burger-png-image_6244235.png" alt="brand-img" />
+          Recipe Finder
+        </AppNameComponent>
+        <SearchComponent>
+          <SearchIcon src="https://uxwing.com/wp-content/themes/uxwing/download/user-interface/search-icon.png" alt="search-icon" />
+          <SearchInput placeholder='Search Recipe'/>
+        </SearchComponent>
+      </Header>
+    </Container>
   )
 }
 
