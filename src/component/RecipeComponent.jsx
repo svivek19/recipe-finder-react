@@ -41,9 +41,17 @@ color:green;
 text-align:center;
 font-weight:500;
 margin-bottom:12px;
+&:hover {
+  background-color: lightgreen; 
+}
 `;
+
+
 
 export const SeeMoreText = styled(IngredientsText)`
 color:red;
 border: 1px solid red;
+&:hover {
+  background-color: #FFCCCB; 
+}
 `;
