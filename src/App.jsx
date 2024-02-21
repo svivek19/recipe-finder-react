@@ -10,11 +10,12 @@ const App = () => {
   
   const fetchRecipe = (searchString) => {
     axios.get(`https://api.edamam.com/search?q=${searchString}&app_id=${APP_ID}&app_key=${APP_KEY}`)
+    .then((res)=>console.log(res))
   }
 
   const onTextChange = (e) => {
     clearTimeout(timeoutId);
-    const timeout = setTimeout(() => fetchRecipe, 3000);
+    const timeout = setTimeout(() => fetchRecipe(e.target.value), 3000);
     setTimeoutId(timeout);
   };
 
