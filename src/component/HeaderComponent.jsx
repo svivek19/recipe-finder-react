@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Header = styled.div`
 color:white;
-background-color:darkgreen;
+background-color:#12372A;
 display:flex;
 justify-content:space-between;
 flex:direction:row;
@@ -33,7 +33,7 @@ height:23px;
 const SearchComponent = styled.div`
 display:flex;
 flex-direction:row;
-background-color: white;
+background-color: #E3E1D9;
 padding:10px;
 border-radius:6px;
 width:50%;
@@ -43,6 +43,7 @@ const SearchInput = styled.input`
 border:none;
 outline:none;
 width:100%;
+background-color: #E3E1D9;
 margin-left:15px;
 font-size: 16px;
 font-weight:bold;

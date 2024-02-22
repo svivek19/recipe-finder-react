@@ -13,6 +13,7 @@ const RecipeContainer = styled.div`
   dissplay:flex;
   flex-direction:column;
   padding:10px;
+  background-color:#FBFADA;
   box-shadow: 0 3px 10px 0 #aaa;
   width:300px;
   border-radius:10px;
