@@ -1,31 +1,23 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
 import Header from './component/HeaderComponent';
 import Recipe from './component/RecipeComponent';
-import { Dialog } from '@mui/material';
-import styled from 'styled-components';
+import DialogComponent from './component/DialogComponent';
 
-const Placeholder = styled.img`
-width:120px;
-height:120px;
-margin:200px;
-opacity:50%;
-`;
 
 const RecipeComponent = ({ recipeObj }) => {
   const [show, setShow] = useState(false);
   return (
     <>
-      <Dialog open={show}>
-        <DialogTitle id="alert-dialog-title">Ingredients</DialogTitle>
-        <DialogContent>
+      <DialogComponent.Dialog open={show}>
+        <DialogComponent.DialogTitle id="alert-dialog-title">Ingredients</DialogComponent.DialogTitle>
+        <DialogComponent.DialogContent>
           <table>
             <thead>
+              <tr>
               <th>Ingredients</th>
               <th>Weight</th>
+              </tr>
             </thead>
             <tbody>
               {recipeObj.ingredients.map((ingredientObj) => (
@@ -36,12 +28,12 @@ const RecipeComponent = ({ recipeObj }) => {
               ))}
             </tbody>
           </table>
-        </DialogContent>
-        <DialogActions>
+        </DialogComponent.DialogContent>
+        <DialogComponent.DialogActions>
           <Recipe.IngredientsText onClick={() => window.open(recipeObj.url)}>See More</Recipe.IngredientsText>
           <Recipe.SeeMoreText onClick={() => setShow(false)}>Close</Recipe.SeeMoreText>
-        </DialogActions>
-      </Dialog>
+        </DialogComponent.DialogActions>
+      </DialogComponent.Dialog>
       <Recipe.RecipeContainer>
         <Recipe.CoverImage src={recipeObj.image} alt='product-image' />
         <Recipe.RecipeName>{recipeObj.label}</Recipe.RecipeName>
@@ -84,7 +76,8 @@ const App = () => {
         </Header.SearchComponent>
       </Header.Header>
       <Recipe.RecipeListContainer>
-        {recipeList.length ? recipeList.map((recipeObj) => <RecipeComponent recipeObj={recipeObj.recipe} />):<Placeholder src="https://png.pngtree.com/png-clipart/20221001/ourmid/pngtree-fast-food-big-ham-burger-png-image_6244235.png"/>}
+        {recipeList.length ? recipeList.map((recipeObj) => <RecipeComponent recipeObj={recipeObj.recipe} />) : 
+        <DialogComponent.Placeholder src="https://png.pngtree.com/png-clipart/20221001/ourmid/pngtree-fast-food-big-ham-burger-png-image_6244235.png" />}
       </Recipe.RecipeListContainer>
     </Header.Container>
   )
