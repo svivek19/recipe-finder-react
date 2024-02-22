@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const RecipeListContainer = styled.div`
+const RecipeListContainer = styled.div`
 display:flex;
 flex:direction:row;
 flex-wrap:wrap;
@@ -9,7 +9,7 @@ justify-content:space-evenly;
 gap:20px;
 `;
 
-export const RecipeContainer = styled.div`
+const RecipeContainer = styled.div`
   dissplay:flex;
   flex-direction:column;
   padding:10px;
@@ -18,20 +18,20 @@ export const RecipeContainer = styled.div`
   border-radius:10px;
 `;
 
-export const CoverImage = styled.img`
+const CoverImage = styled.img`
 width:100%;
 height:200px;
 border-radius:10px;
 `;
 
-export const RecipeName = styled.p`
+const RecipeName = styled.p`
 font-size:18px;
 font-weight:bold;
 color:black;
 margin: 10px 0;
 `;
 
-export const IngredientsText = styled.p`
+const IngredientsText = styled.p`
 font-size:18px;
 border: 1px solid green;
 color:black;
@@ -47,12 +47,12 @@ margin-bottom:12px;
 }
 `;
 
-
-
-export const SeeMoreText = styled(IngredientsText)`
+const SeeMoreText = styled(IngredientsText)`
 color:red;
 border: 1px solid red;
 &:hover {
   background-color: #FFCCCB; 
 }
 `;
+
+export default { RecipeListContainer, RecipeContainer, CoverImage, RecipeName, IngredientsText, SeeMoreText };
