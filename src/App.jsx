@@ -4,9 +4,10 @@ import Header from './component/HeaderComponent';
 import Recipe from './component/RecipeComponent';
 import DialogComponent from './component/DialogComponent';
 
-
 const RecipeComponent = ({ recipeObj }) => {
+
   const [show, setShow] = useState(false);
+
   return (
     <>
       <DialogComponent.Dialog open={show}>
@@ -15,13 +16,13 @@ const RecipeComponent = ({ recipeObj }) => {
           <table>
             <thead>
               <tr>
-              <th>Ingredients</th>
-              <th>Weight</th>
+                <th>Ingredients</th>
+                <th>Weight</th>
               </tr>
             </thead>
             <tbody>
-              {recipeObj.ingredients.map((ingredientObj) => (
-                <tr>
+              {recipeObj.ingredients.map((ingredientObj, index) => (
+                <tr key={index}>
                   <td>{ingredientObj.text}</td>
                   <td>{ingredientObj.weight}</td>
                 </tr>
@@ -34,6 +35,7 @@ const RecipeComponent = ({ recipeObj }) => {
           <Recipe.SeeMoreText onClick={() => setShow(false)}>Close</Recipe.SeeMoreText>
         </DialogComponent.DialogActions>
       </DialogComponent.Dialog>
+
       <Recipe.RecipeContainer>
         <Recipe.CoverImage src={recipeObj.image} alt='product-image' />
         <Recipe.RecipeName>{recipeObj.label}</Recipe.RecipeName>
@@ -76,8 +78,8 @@ const App = () => {
         </Header.SearchComponent>
       </Header.Header>
       <Recipe.RecipeListContainer>
-        {recipeList.length ? recipeList.map((recipeObj) => <RecipeComponent recipeObj={recipeObj.recipe} />) : 
-        <DialogComponent.Placeholder src="https://png.pngtree.com/png-clipart/20221001/ourmid/pngtree-fast-food-big-ham-burger-png-image_6244235.png" />}
+        {recipeList.length ? recipeList.map((recipeObj, index) => <RecipeComponent key={index} recipeObj={recipeObj.recipe} />) :
+          <DialogComponent.Placeholder src="https://png.pngtree.com/png-clipart/20221001/ourmid/pngtree-fast-food-big-ham-burger-png-image_6244235.png" />}
       </Recipe.RecipeListContainer>
     </Header.Container>
   )
